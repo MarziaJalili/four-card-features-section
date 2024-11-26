@@ -1,0 +1,168 @@
+:root {
+    --Red: hsl(0, 78%, 62%);
+    --Cyan: hsl(180, 62%, 55%);
+    --Orange: hsl(34, 97%, 64%);
+    --Blue: 212 86% 64%;
+    --Very-Dark-Blue: hsl(234, 12%, 34%);
+    --Grayish-Blue: hsl(229, 6%, 66%);
+    --Very-Light-Gray: hsl(0, 0%, 98%);
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: var(--Very-Light-Gray);
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+
+main {
+    padding: 5rem 2rem;
+    display: grid;
+    place-items: center;
+    gap: 1.8rem;
+    text-align: center;
+}
+
+hgroup {
+    display: grid;
+    gap: 1.8rem;
+    width: 100%;
+    max-width: 600px;
+}
+
+h1 {
+    font-weight: 200;
+    line-height: 1.5;
+    color: var(--Very-Dark-Blue);
+
+    & em {
+        font-style: normal;
+        font-weight: 600;
+        display: block;
+    }
+}
+
+
+
+p {
+    color: var(--Grayish-Blue);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+main>p {
+    font-size: 1.3rem;
+}
+
+.wrapper {
+    margin-top: 3rem;
+    text-align: left;
+    display: grid;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.wrapper li {
+    background-color: white;
+    border-radius: 8px;
+    padding: 2rem;
+    border-top: 4px solid var(--Cyan);
+    display: grid;
+    gap: 1rem;
+    box-shadow: 0 5px 5px 10px hsl(var(--Blue) / .1);
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+
+    &:hover {
+        transform: scale(1.02);
+    }
+
+    &:active {
+        transform: scale(1);
+    }
+
+    & h2 {
+        color: var(--Very-Dark-Blue);
+        font-size: 1.6rem;
+    }
+
+    & img {
+        margin-left: auto;
+        margin-top: 1rem;
+    }
+}
+
+
+li:nth-child(1) {
+    border-color: var(--Cyan);
+}
+
+li:nth-child(2) {
+    border-color: var(--Red);
+}
+
+li:nth-child(3) {
+    border-color: var(--Orange);
+}
+
+li:nth-child(4) {
+    border-color: hsl(var(--Blue));
+}
+
+
+/* desktop design bro */
+@media (min-width: 50em) {
+    main {
+        padding-block: 4rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .wrapper {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
+
+    li:nth-child(1) {
+        border-color: var(--Cyan);
+        grid-row-start: 2;
+        grid-row-end: 4;
+    }
+
+    li:nth-child(2) {
+        border-color: var(--Red);
+        /* grid-area: two; */
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+
+    li:nth-child(3) {
+        border-color: var(--Orange);
+        /* grid-area: three; */
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 3;
+        grid-row-end: 5;
+    }
+
+    li:nth-child(4) {
+        border-color: hsl(var(--Blue));
+        /* grid-area: four; */
+        grid-row-start: 2;
+        grid-row-end: 4;
+    }
+}
